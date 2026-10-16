@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>dsync420</title>
+  <title>dsync</title>
   <meta name="description" content="dsync's portfolio">
   <style>
     :root {
@@ -19,9 +19,10 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Consolas, sans-serif;
       line-height: 1.6;
       min-height: 100vh;
+      text-align: center;
       -webkit-font-smoothing: antialiased;
     }
     a { color: inherit; text-decoration: none; }
@@ -50,7 +51,7 @@
       background: rgba(0, 0, 0, 0.72);
       border: 1px solid #fff;
       border-radius: 14px;
-      padding: 28px;
+      padding: 32px 28px;
       box-shadow:
         0 0 8px var(--violet-soft),
         0 0 24px var(--violet-faint),
@@ -64,6 +65,30 @@
         inset 0 0 18px rgba(168, 85, 247, 0.2);
     }
 
+    /* Foto de perfil */
+    .avatar {
+      position: relative;
+      width: 124px;
+      height: 124px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      border: 1px solid #fff;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(168, 85, 247, 0.12);
+      box-shadow: 0 0 10px var(--violet-soft), 0 0 26px var(--violet-faint);
+    }
+    .avatar span { font-size: 2.6rem; font-weight: 600; color: var(--violet); }
+    .avatar img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     h1 {
       font-size: clamp(2rem, 6vw, 2.6rem);
       font-weight: 600;
@@ -71,7 +96,14 @@
       line-height: 1.15;
       margin-bottom: 12px;
     }
-    .desc { color: var(--muted); font-size: 1.02rem; }
+    .desc { color: var(--muted); font-size: 1.02rem; max-width: 520px; margin: 0 auto; }
+
+    .divider {
+      height: 1px;
+      margin: 26px auto 22px;
+      width: 70%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+    }
 
     h2 {
       font-size: 0.78rem;
@@ -82,18 +114,32 @@
       margin-bottom: 16px;
     }
 
-    .links { display: flex; flex-wrap: wrap; gap: 12px; }
+    /* Iconos de contacto */
+    .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
     .links a {
-      padding: 8px 16px;
+      width: 46px;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border: 1px solid #fff;
-      border-radius: 999px;
-      font-size: 0.9rem;
+      border-radius: 50%;
       box-shadow: 0 0 6px var(--violet-faint);
-      transition: box-shadow .25s ease, background .25s ease;
+      transition: box-shadow .25s ease, background .25s ease, transform .25s ease;
     }
     .links a:hover {
-      background: rgba(168, 85, 247, 0.15);
-      box-shadow: 0 0 14px var(--violet);
+      background: rgba(168, 85, 247, 0.18);
+      box-shadow: 0 0 16px var(--violet);
+      transform: translateY(-2px);
+    }
+    .links svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .projects { display: grid; gap: 24px; grid-template-columns: 1fr; }
@@ -108,7 +154,7 @@
 
     .section-title { margin: 8px 4px -8px; }
 
-    footer { text-align: center; font-size: 0.8rem; color: var(--muted); padding-top: 8px; }
+    footer { font-size: 0.8rem; color: var(--muted); padding-top: 8px; }
 
     @media (prefers-reduced-motion: reduce) {
       .card, .links a { transition: none; }
@@ -120,27 +166,44 @@
 
   <main class="wrap">
 
-    <section class="card">
-      <h1>dsync</h1>
-      <p class="desc">History, archival science & tech stuff. </p>
-    </section>
-
+    <!-- Recuadro principal: foto + nombre + descripción + contacto -->
     <section class="card" id="contacto">
-      <h2>CONTACT</h2>
+      <div class="avatar">
+        <span>D</span>
+        <!-- Subí tu foto a la carpeta assets con este nombre (o cambiá la ruta) -->
+        <img src="assets/perfil.jpg" alt="Foto de perfil" onerror="this.remove()">
+      </div>
+
+      <h1>dsync</h1>
+      <p class="desc">History, archival science & tech stuff.</p>
+
+      <div class="divider"></div>
+
+      <h2>Contact</h2>
       <div class="links">
-        <a href="https://github.com/dsync420" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://t.me/az3rbaijan420">Telegram</a>
-        <a href="">Discord\npero_si_es_el_marta</a>
-        
+        <a href="https://github.com/dsync420" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+        <a href="mailto:tu@email.com" aria-label="Email" title="Email">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3,7 12,13 21,7"/></svg>
+        </a>
+        <a href="https://discord.com/users/TU_ID" target="_blank" rel="noopener" aria-label="Discord" title="Discord">
+          <svg viewBox="0 0 24 24">
+            <path d="M8.5 6.5C10.3 6.2 13.7 6.2 15.5 6.5 17.2 6.9 18.7 7.5 20 8.3c1.6 3.6 2.2 7.1 1.8 10.2-1.4 1-2.9 1.7-4.6 2.1l-1.1-1.9M8.5 6.5C6.8 6.9 5.3 7.5 4 8.3c-1.6 3.6-2.2 7.1-1.8 10.2 1.4 1 2.9 1.7 4.6 2.1l1.1-1.9"/>
+            <path d="M7.5 17.5c3 1.2 6 1.2 9 0"/>
+            <circle cx="9" cy="12.5" r="1.4"/>
+            <circle cx="15" cy="12.5" r="1.4"/>
+          </svg>
+        </a>
       </div>
     </section>
 
-    <h2 class="section-title">PROJECTS</h2>
+    <h2 class="section-title">Projects</h2>
     <section class="projects" id="proyectos">
       <a class="card project" href="https://github.com/dsync420" target="_blank" rel="noopener">
         <h3>Asgard</h3>
-        <p>Archive and Research Lab.</p>
-        <div class="tags">Docker · MySQL</div>
+        <p>Descripción breve de lo que hace este proyecto.</p>
+        <div class="tags">HTML · CSS · JS</div>
       </a>
       <a class="card project" href="https://github.com/dsync420" target="_blank" rel="noopener">
         <h3>Proyecto dos</h3>
@@ -165,14 +228,33 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Partículas blancas
+    // Segmentos blancos que aparecen, se mueven y desaparecen
     (function () {
       var canvas = document.getElementById("particles");
       var ctx = canvas.getContext("2d");
-      var reduce = false; // siempre en movimiento
       var segments = [];
       var w, h, dpr;
       var MARGIN = 260;
+
+      function makeSegment(randomAge) {
+        var life = Math.random() * 600 + 300; // frames de vida (aprox. 5 a 15 s)
+        return {
+          x: Math.random() * w,            // punto de inicio
+          y: Math.random() * h,
+          len: Math.random() * 110 + 15,   // longitud variable
+          angle: Math.random() * Math.PI * 2,
+          spin: (Math.random() - 0.5) * 0.004,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          width: Math.random() * 1 + 0.5,
+          a: Math.random() * 0.5 + 0.4,
+          joined: Math.random() < 0.45,                                      // algunos llevan un segundo tramo
+          len2: Math.random() * 80 + 20,
+          bend: (Math.random() < 0.5 ? -1 : 1) * (Math.random() * 1.6 + 0.7), // giro en la punta
+          life: life,
+          age: randomAge ? Math.random() * life : 0
+        };
+      }
 
       function resize() {
         dpr = window.devicePixelRatio || 1;
@@ -183,71 +265,66 @@
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         var count = Math.min(80, Math.floor((w * h) / 20000));
         segments = [];
-        for (var i = 0; i < count; i++) {
-          segments.push({
-            x: Math.random() * w,            // punto de inicio
-            y: Math.random() * h,
-            len: Math.random() * 110 + 15,   // longitud variable
-            angle: Math.random() * Math.PI * 2,
-            spin: (Math.random() - 0.5) * 0.004,
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: (Math.random() - 0.5) * 0.5,
-            width: Math.random() * 1 + 0.5,
-            a: Math.random() * 0.5 + 0.35,
-            joined: Math.random() < 0.45,                       // algunos llevan un segundo tramo
-            len2: Math.random() * 80 + 20,                      // largo del segundo tramo
-            bend: (Math.random() < 0.5 ? -1 : 1) * (Math.random() * 1.6 + 0.7) // giro en la punta
-          });
-        }
+        for (var i = 0; i < count; i++) segments.push(makeSegment(true));
+      }
+
+      function dot(x, y, r) {
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+        ctx.fill();
       }
 
       function draw() {
         ctx.clearRect(0, 0, w, h);
         ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+
         for (var i = 0; i < segments.length; i++) {
           var s = segments[i];
-          if (!reduce) {
-            s.x += s.vx;
-            s.y += s.vy;
-            s.angle += s.spin;
-            if (s.x < -MARGIN) s.x = w + MARGIN;
-            if (s.x > w + MARGIN) s.x = -MARGIN;
-            if (s.y < -MARGIN) s.y = h + MARGIN;
-            if (s.y > h + MARGIN) s.y = -MARGIN;
+
+          s.x += s.vx;
+          s.y += s.vy;
+          s.angle += s.spin;
+          s.age++;
+
+          // Cuando termina su vida, se reemplaza por otro nuevo en otro lugar
+          if (s.age >= s.life) {
+            segments[i] = s = makeSegment(false);
           }
-          var ex = s.x + Math.cos(s.angle) * s.len;   // punta del primer tramo
+
+          // Aparece y desaparece suavemente
+          var t = s.age / s.life;
+          var alpha = s.a * Math.sin(Math.PI * t);
+
+          var ex = s.x + Math.cos(s.angle) * s.len;
           var ey = s.y + Math.sin(s.angle) * s.len;
-          var color = "rgba(255,255,255," + s.a + ")";
+          var color = "rgba(255,255,255," + alpha + ")";
           var r = s.width + 0.8;
 
           ctx.strokeStyle = color;
           ctx.fillStyle = color;
           ctx.lineWidth = s.width;
-          ctx.lineJoin = "round";
           ctx.beginPath();
           ctx.moveTo(s.x, s.y);
           ctx.lineTo(ex, ey);
 
           var fx = ex, fy = ey;
           if (s.joined) {
-            var a2 = s.angle + s.bend;                // segundo tramo, orientado distinto
+            var a2 = s.angle + s.bend;
             fx = ex + Math.cos(a2) * s.len2;
             fy = ey + Math.sin(a2) * s.len2;
             ctx.lineTo(fx, fy);
           }
           ctx.stroke();
 
-          // puntos: inicio, unión (si hay) y final
-          ctx.beginPath(); ctx.arc(s.x, s.y, r, 0, Math.PI * 2); ctx.fill();
-          if (s.joined) {
-            ctx.beginPath(); ctx.arc(ex, ey, r, 0, Math.PI * 2); ctx.fill();
-          }
-          ctx.beginPath(); ctx.arc(fx, fy, r, 0, Math.PI * 2); ctx.fill();
+          dot(s.x, s.y, r);
+          if (s.joined) dot(ex, ey, r);
+          dot(fx, fy, r);
         }
-        if (!reduce) requestAnimationFrame(draw);
+        requestAnimationFrame(draw);
       }
 
-      window.addEventListener("resize", function () { resize(); if (reduce) draw(); });
+      window.addEventListener("resize", resize);
       resize();
       draw();
     })();
