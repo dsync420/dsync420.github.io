@@ -1,157 +1,237 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tu Nombre — Portafolio</title>
-  <meta name="description" content="dsync">
-  <style>
-    :root {
-      --bg: #fafafa;
-      --text: #1a1a1a;
-      --muted: #6b6b6b;
-      --line: #e5e5e5;
-      --accent: #2f5dff;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #111111;
-        --text: #ececec;
-        --muted: #8f8f8f;
-        --line: #262626;
-        --accent: #7c9bff;
-      }
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; text-decoration: none; }
-    .wrap { max-width: 640px; margin: 0 auto; padding: 0 24px; }
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Primary Meta Tags -->
+<title>Portfolio Template - Open source</title>
+<meta name="title" content="Portfolio Template - Open source">
+<meta name="description" content="Build or customize your portfolio website using this super easy template. Free to use if you are a member of the community or a contributor to this project">
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 32px 0;
-      font-size: 0.95rem;
-    }
-    header .logo { font-weight: 600; }
-    nav a { margin-left: 20px; color: var(--muted); transition: color .2s; }
-    nav a:hover { color: var(--text); }
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://github.com/CommunityPro/portfolio-html">
+<meta property="og:title" content="Portfolio Template - Open source">
+<meta property="og:description" content="Build or customize your portfolio website using this super easy template. Free to use if you are a member of the community or a contributor to this project">
+<meta property="og:image" content="https://user-images.githubusercontent.com/62628408/150613011-b78a7f5a-0af1-4312-aab0-0022e7258693.png">
 
-    .hero { padding: 72px 0 56px; }
-    .hero h1 {
-      font-size: clamp(2rem, 6vw, 2.75rem);
-      font-weight: 600;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      margin-bottom: 20px;
-    }
-    .hero p { color: var(--muted); font-size: 1.1rem; max-width: 520px; }
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://github.com/CommunityPro/portfolio-html">
+<meta property="twitter:title" content="Portfolio Template - Open source">
+<meta property="twitter:description" content="Build or customize your portfolio website using this super easy template. Free to use if you are a member of the community or a contributor to this project">
+<meta property="twitter:image" content="https://user-images.githubusercontent.com/62628408/150613011-b78a7f5a-0af1-4312-aab0-0022e7258693.png">
 
-    section { padding: 40px 0; border-top: 1px solid var(--line); }
-    h2 {
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      margin-bottom: 24px;
-    }
+    <!-- Link -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/favicon/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="assets/favicon/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="assets/favicon/android-chrome-512x512.png"
+    />
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico" />
+    <link rel="manifest" href="assets/favicon/site.webmanifest" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+  </head>
+  <body>
+    <header id="hero">
+      <!-- Navbar -->
+      <nav class="navbar">
+        <div class="container">
+          <!-- Logo -->
+          <h1 id="logo">
+            <a href="https://github.com/CommunityPro/portfolio-html"><img src="./assets/logo.png" alt="Your Logo" /></a>
+          </h1>
+          <!-- Navbar links -->
+          <ul class="nav-menu">
+            <li><a class="nav-link" href="#projects">PROJECTS</a></li>
+            <li><a class="nav-link" href="#">CONTACT</a></li>
+            <li><a class="nav-link" href="#">BlOG</a></li>
+            <li>
+              <a class="nav-link btn btn-primary" href="https://github.com/CommunityPro/portfolio-html"
+                >RESUME <i class="fas fa-arrow-right"></i
+              ></a>
+            </li>
 
-    .project { display: block; padding: 18px 0; border-bottom: 1px solid var(--line); }
-    .project:last-child { border-bottom: none; }
-    .project h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; transition: color .2s; }
-    .project:hover h3 { color: var(--accent); }
-    .project p { color: var(--muted); font-size: 0.95rem; }
-    .tags { margin-top: 8px; font-size: 0.8rem; color: var(--muted); }
-
-    .skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    .skills span {
-      font-size: 0.85rem;
-      padding: 4px 12px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--muted);
-    }
-
-    .contact a { color: var(--accent); }
-    .contact a:hover { text-decoration: underline; }
-    .links { margin-top: 16px; display: flex; gap: 20px; flex-wrap: wrap; }
-
-    footer { padding: 40px 0 56px; font-size: 0.85rem; color: var(--muted); }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-
-    <header>
-      <a href="#" class="logo">Tu Nombre</a>
-      <nav>
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#contacto">Contacto</a>
+            <!-- Toggle switch -->
+            <div class="theme-switch">
+              <input type="checkbox" id="switch" />
+              <label class="toggle-icons" for="switch">
+                 <img class="moon" src="assets/moon.svg" />
+                 <img class="sun" src="assets/sun.svg" />
+              </label>
+            </div>
+            <!-- Hamburger menu -->
+          </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
       </nav>
-    </header>
 
-    <main>
-      <div class="hero">
-        <h1>dsync.<br></h1>
-        <p>History, archival science and tech stuff.</p>
+      <section class="header-container">
+        <img class="profile-image" src="./assets/profile-image.svg" alt="" />
+        <h1>Hi I'm Franklin</h1>
+
+        <div class="content-text">
+          <h2>Building digital</h2>
+          <h2>products, brands, and experience.</h2>
+          
+          <p>
+            A Frontend Developer and Visual Designer with experience in web
+            design, brand identity and product design.
+          </p>
+         </div>
+         <a href="https://github.com/CommunityPro/portfolio-html" class="btn btn-secondary">Connect With Me</a>
+      </section>
+   </header>
+   
+   
+   <!-- Projects -->
+   <section id ="projects" class="project-container container">
+      <div class="division"></div>
+     <div class="content-text">
+        <h2>Works</h2>
+        <p>Check out some of my personal and paid projects</p>
+     </div>
+
+     <article class="project">
+        <!-- Project 1 -->
+        <div href="" class="card">
+           <div class="project-info">
+              <div class="project-bio">
+                 <h3>Project One</h3>
+                 <p>React, Redux, SASS</p>
+              </div>
+
+              <div class="project-link">
+                 <a href="#"><i class="fab fa-github"></i></a>
+                 <a href="#"><i class="fas fa-globe"></i></a>
+              </div>
+           </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div href="" class="card">
+           <div class="project-info">
+              <div class="project-bio">
+                 <h3>Project Two</h3>
+                 <p>React, Redux, SASS</p>
+              </div>
+
+              <div class="project-link">
+                 <a href="#"><i class="fab fa-github"></i></a>
+                 <a href="#"><i class="fas fa-globe"></i></a>
+              </div>
+           </div>
+        </div>
+
+        <!-- Porject 3 -->
+        <div href="" class="card">
+           <div class="project-info">
+              <div class="project-bio">
+                 <h3>Project Three</h3>
+                 <p>React, Redux, SASS</p>
+              </div>
+
+              <div class="project-link">
+                 <a href="#"><i class="fab fa-github"></i></a>
+                 <a href="#"><i class="fas fa-globe"></i></a>
+              </div>
+           </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div href="" class="card">
+           <div class="project-info">
+              <div class="project-bio">
+                 <h3>Project Four</h3>
+                 <p>React, Redux, SASS</p>
+              </div>
+
+              <div class="project-link">
+                 <a href="#"><i class="fab fa-github"></i></a>
+                 <a href="#"><i class="fas fa-globe"></i></a>
+              </div>
+           </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div href="" class="card">
+           <div class="project-info">
+              <div class="project-bio">
+                 <h3>Project Five</h3>
+                 <p>React, Redux, SASS</p>
+              </div>
+
+              <div class="project-link">
+                 <a href="#"><i class="fab fa-github"></i></a>
+                 <a href="#"><i class="fas fa-globe"></i></a>
+              </div>
+           </div>
+         </div>
+
+        <!-- Project 6 -->
+        <div href="" class="card">
+           <div class="project-info">
+             <div class="project-bio">
+                 <h3>Project Six</h3>
+                 <p>React, Redux, SASS</p>
+              </div>
+
+              <div class="project-link">
+                 <a href="#"><i class="fab fa-github"></i></a>
+                 <a href="#"><i class="fas fa-globe"></i></a>
+              </div>
+           </div>
+         </div>
+     </article>
+
+     <a href="#" class="btn btn-secondary">See More <i class="fas fa-arrow-right"></i></a>
+   </section>
+
+   <footer id="footer">
+      <div class="container">
+         <a href="mailto:communitypro47@gmail.com">communitypro47@gmail.com</a>
+         <!-- Social links -->
+         <div class="social">
+            <a href="#"><img src="./assets/facebook-icon.svg" alt="Facebook"></a>
+            <a href="#"><img src="./assets/twitter-icon.svg" alt="Twitter"></a>
+            <a href="#"><img src="./assets/linkedin-icon.svg" alt="Linkedin"></a>
+            <a href="#"><img src="./assets/github-icon.svg" alt="GitHub"></a>
+            <a href="#"><img src="./assets/hashnode-icon.svg" alt="Hashnode"></a>
+         </div>
+         <p>Copyright &copy; Communitypro 2022, All rights reserved</p>
       </div>
-
-      <section id="sobre-mi">
-        <h2>Sobre mí</h2>
-        <p>Currently working in Asgard™ Archive and Research Lab</p>
-        <div class="skills">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-          <span>Git</span>
-          <span>Figma</span>
-        </div>
-      </section>
-
-      <section id="proyectos">
-        <h2>Proyectos</h2>
-        <a class="project" href="https://github.com/tu-usuario/proyecto-1" target="_blank" rel="noopener">
-          <h3>Proyecto uno</h3>
-          <p>Una descripción de una línea de qué hace y para quién es.</p>
-          <div class="tags">HTML · CSS · JavaScript</div>
-        </a>
-        <a class="project" href="https://github.com/tu-usuario/proyecto-2" target="_blank" rel="noopener">
-          <h3>Proyecto dos</h3>
-          <p>Contá brevemente el problema que resolviste.</p>
-          <div class="tags">React · API REST</div>
-        </a>
-        <a class="project" href="https://github.com/tu-usuario/proyecto-3" target="_blank" rel="noopener">
-          <h3>Proyecto tres</h3>
-          <p>Otro trabajo que quieras mostrar.</p>
-          <div class="tags">Python · Automatización</div>
-        </a>
-      </section>
-
-      <section id="contacto" class="contact">
-        <h2>Contacto</h2>
-        <p>¿Tenés un proyecto o querés charlar? Escribime a <a href="mailto:tu@email.com">tu@email.com</a>.</p>
-        <div class="links">
-          <a href="https://github.com/tu-usuario" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
-      </section>
-    </main>
-
-    <footer>© <span id="year"></span> Tu Nombre</footer>
-  </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
+   </footer>
+    <script src="js/script.js"></script>
+  </body>
 </html>
