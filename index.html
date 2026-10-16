@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>dsync — Portafolio</title>
-  <meta name="description" content="Portafolio de dsync.">
+  <title>dsync420</title>
+  <meta name="description" content="dsync's portfolio">
   <style>
     :root {
       --bg: #000;
@@ -122,25 +122,25 @@
 
     <section class="card">
       <h1>dsync</h1>
-      <p class="desc">Escribí acá una descripción corta sobre vos: qué hacés, qué te interesa y qué tipo de proyectos te gustan.</p>
+      <p class="desc">History, archival science & tech stuff. </p>
     </section>
 
     <section class="card" id="contacto">
-      <h2>Redes y contacto</h2>
+      <h2>CONTACT</h2>
       <div class="links">
         <a href="https://github.com/dsync420" target="_blank" rel="noopener">GitHub</a>
-        <a href="mailto:tu@email.com">Email</a>
-        <a href="https://instagram.com/tu-usuario" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://t.me/az3rbaijan420">Telegram</a>
+        <a href="">Discord\npero_si_es_el_marta</a>
+        
       </div>
     </section>
 
-    <h2 class="section-title">Proyectos</h2>
+    <h2 class="section-title">PROJECTS</h2>
     <section class="projects" id="proyectos">
       <a class="card project" href="https://github.com/dsync420" target="_blank" rel="noopener">
-        <h3>Proyecto uno</h3>
-        <p>Descripción breve de lo que hace este proyecto.</p>
-        <div class="tags">HTML · CSS · JS</div>
+        <h3>Asgard</h3>
+        <p>Archive and Research Lab.</p>
+        <div class="tags">Docker · MySQL</div>
       </a>
       <a class="card project" href="https://github.com/dsync420" target="_blank" rel="noopener">
         <h3>Proyecto dos</h3>
@@ -169,10 +169,10 @@
     (function () {
       var canvas = document.getElementById("particles");
       var ctx = canvas.getContext("2d");
-      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var reduce = false; // siempre en movimiento
       var segments = [];
       var w, h, dpr;
-      var MARGIN = 160;
+      var MARGIN = 260;
 
       function resize() {
         dpr = window.devicePixelRatio || 1;
@@ -193,7 +193,10 @@
             vx: (Math.random() - 0.5) * 0.5,
             vy: (Math.random() - 0.5) * 0.5,
             width: Math.random() * 1 + 0.5,
-            a: Math.random() * 0.5 + 0.35
+            a: Math.random() * 0.5 + 0.35,
+            joined: Math.random() < 0.45,                       // algunos llevan un segundo tramo
+            len2: Math.random() * 80 + 20,                      // largo del segundo tramo
+            bend: (Math.random() < 0.5 ? -1 : 1) * (Math.random() * 1.6 + 0.7) // giro en la punta
           });
         }
       }
@@ -212,22 +215,34 @@
             if (s.y < -MARGIN) s.y = h + MARGIN;
             if (s.y > h + MARGIN) s.y = -MARGIN;
           }
-          var ex = s.x + Math.cos(s.angle) * s.len;   // punto final
+          var ex = s.x + Math.cos(s.angle) * s.len;   // punta del primer tramo
           var ey = s.y + Math.sin(s.angle) * s.len;
           var color = "rgba(255,255,255," + s.a + ")";
+          var r = s.width + 0.8;
 
           ctx.strokeStyle = color;
+          ctx.fillStyle = color;
           ctx.lineWidth = s.width;
+          ctx.lineJoin = "round";
           ctx.beginPath();
           ctx.moveTo(s.x, s.y);
           ctx.lineTo(ex, ey);
+
+          var fx = ex, fy = ey;
+          if (s.joined) {
+            var a2 = s.angle + s.bend;                // segundo tramo, orientado distinto
+            fx = ex + Math.cos(a2) * s.len2;
+            fy = ey + Math.sin(a2) * s.len2;
+            ctx.lineTo(fx, fy);
+          }
           ctx.stroke();
 
-          ctx.fillStyle = color;
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, s.width + 0.8, 0, Math.PI * 2);
-          ctx.arc(ex, ey, s.width + 0.8, 0, Math.PI * 2);
-          ctx.fill();
+          // puntos: inicio, unión (si hay) y final
+          ctx.beginPath(); ctx.arc(s.x, s.y, r, 0, Math.PI * 2); ctx.fill();
+          if (s.joined) {
+            ctx.beginPath(); ctx.arc(ex, ey, r, 0, Math.PI * 2); ctx.fill();
+          }
+          ctx.beginPath(); ctx.arc(fx, fy, r, 0, Math.PI * 2); ctx.fill();
         }
         if (!reduce) requestAnimationFrame(draw);
       }
