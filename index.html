@@ -1,237 +1,223 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Primary Meta Tags -->
-<title>Portfolio Template - Open source</title>
-<meta name="title" content="dsync - home">
-<meta name="description" content="">
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>dsync — Portafolio</title>
+  <meta name="description" content="Portafolio de dsync.">
+  <style>
+    :root {
+      --bg: #000;
+      --text: #f2f2f2;
+      --muted: #9a9a9a;
+      --violet: #a855f7;
+      --violet-soft: rgba(168, 85, 247, 0.55);
+      --violet-faint: rgba(139, 92, 246, 0.3);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://github.com/CommunityPro/portfolio-html">
-<meta property="og:title" content="dsync - home">
-<meta property="og:description" content="Build or customize your portfolio website using this super easy template. Free to use if you are a member of the community or a contributor to this project">
-<meta property="og:image" content="https://user-images.githubusercontent.com/62628408/150613011-b78a7f5a-0af1-4312-aab0-0022e7258693.png">
+    #particles {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://github.com/CommunityPro/portfolio-html">
-<meta property="twitter:title" content="Portfolio Template - Open source">
-<meta property="twitter:description" content="Build or customize your portfolio website using this super easy template. Free to use if you are a member of the community or a contributor to this project">
-<meta property="twitter:image" content="https://user-images.githubusercontent.com/62628408/150613011-b78a7f5a-0af1-4312-aab0-0022e7258693.png">
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 20px 72px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
 
-    <!-- Link -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="assets/favicon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/assets/favicon/favicon-16x16.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="assets/favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="assets/favicon/android-chrome-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="512x512"
-      href="assets/favicon/android-chrome-512x512.png"
-    />
-    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico" />
-    <link rel="manifest" href="assets/favicon/site.webmanifest" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/utilities.css" />
-  </head>
-  <body>
-    <header id="hero">
-      <!-- Navbar -->
-      <nav class="navbar">
-        <div class="container">
-          <!-- Logo -->
-          <h1 id="logo">
-            <a href="https://github.com/CommunityPro/portfolio-html"><img src="./assets/logo.png" alt="Your Logo" /></a>
-          </h1>
-          <!-- Navbar links -->
-          <ul class="nav-menu">
-            <li><a class="nav-link" href="#projects">PROJECTS</a></li>
-            <li><a class="nav-link" href="#">CONTACT</a></li>
-            <li><a class="nav-link" href="#">BlOG</a></li>
-            <li>
-              <a class="nav-link btn btn-primary" href="https://github.com/CommunityPro/portfolio-html"
-                >RESUME <i class="fas fa-arrow-right"></i
-              ></a>
-            </li>
+    .card {
+      background: rgba(0, 0, 0, 0.72);
+      border: 1px solid #fff;
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow:
+        0 0 8px var(--violet-soft),
+        0 0 24px var(--violet-faint),
+        inset 0 0 14px rgba(168, 85, 247, 0.12);
+      transition: box-shadow .3s ease, transform .3s ease;
+    }
+    .card:hover {
+      box-shadow:
+        0 0 12px var(--violet),
+        0 0 36px var(--violet-soft),
+        inset 0 0 18px rgba(168, 85, 247, 0.2);
+    }
 
-            <!-- Toggle switch -->
-            <div class="theme-switch">
-              <input type="checkbox" id="switch" />
-              <label class="toggle-icons" for="switch">
-                 <img class="moon" src="assets/moon.svg" />
-                 <img class="sun" src="assets/sun.svg" />
-              </label>
-            </div>
-            <!-- Hamburger menu -->
-          </ul>
-          <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </div>
-        </div>
-      </nav>
+    h1 {
+      font-size: clamp(2rem, 6vw, 2.6rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .desc { color: var(--muted); font-size: 1.02rem; }
 
-      <section class="header-container">
-        <img class="profile-image" src="./assets/profile-image.gif" alt="" />
-        <h1>dsync</h1>
+    h2 {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
 
-        <div class="content-text">
-          <h2>Archiving everything,</h2>
-          <h2>doing small projects.</h2>
-          
-          <p>
-            History, archival science and tech stuff.
-            
-          </p>
-         </div>
-         <a href="https://e.rich/dsync" class="btn btn-secondary">contact</a>
-      </section>
-   </header>
-   
-   
-   <!-- Projects -->
-   <section id ="projects" class="project-container container">
-      <div class="division"></div>
-     <div class="content-text">
-        <h2>Projects</h2>
-        <p>some of my projects</p>
-     </div>
+    .links { display: flex; flex-wrap: wrap; gap: 12px; }
+    .links a {
+      padding: 8px 16px;
+      border: 1px solid #fff;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      box-shadow: 0 0 6px var(--violet-faint);
+      transition: box-shadow .25s ease, background .25s ease;
+    }
+    .links a:hover {
+      background: rgba(168, 85, 247, 0.15);
+      box-shadow: 0 0 14px var(--violet);
+    }
 
-     <article class="project">
-        <!-- Project 1 -->
-        <div href="" class="card">
-           <div class="project-info">
-              <div class="project-bio">
-                 <h3>Asgard™</h3>
-                 <p>Archive & Research Lab</p>
-              </div>
+    .projects { display: grid; gap: 24px; grid-template-columns: 1fr; }
+    @media (min-width: 640px) {
+      .projects { grid-template-columns: 1fr 1fr; }
+    }
+    .project { display: block; padding: 22px; }
+    .project:hover { transform: translateY(-3px); }
+    .project h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; }
+    .project p { color: var(--muted); font-size: 0.92rem; }
+    .tags { margin-top: 12px; font-size: 0.78rem; color: var(--violet); }
 
-              <div class="project-link">
-                 <a href="#"><i class="fab fa-github"></i></a>
-                 <a href="#"><i class="fas fa-globe"></i></a>
-              </div>
-           </div>
-        </div>
+    .section-title { margin: 8px 4px -8px; }
 
-        <!-- Project 2 -->
-        <div href="" class="card">
-           <div class="project-info">
-              <div class="project-bio">
-                 <h3>Project Two</h3>
-                 <p>React, Redux, SASS</p>
-              </div>
+    footer { text-align: center; font-size: 0.8rem; color: var(--muted); padding-top: 8px; }
 
-              <div class="project-link">
-                 <a href="#"><i class="fab fa-github"></i></a>
-                 <a href="#"><i class="fas fa-globe"></i></a>
-              </div>
-           </div>
-        </div>
+    @media (prefers-reduced-motion: reduce) {
+      .card, .links a { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="particles" aria-hidden="true"></canvas>
 
-        <!-- Porject 3 -->
-        <div href="" class="card">
-           <div class="project-info">
-              <div class="project-bio">
-                 <h3>Project Three</h3>
-                 <p>React, Redux, SASS</p>
-              </div>
+  <main class="wrap">
 
-              <div class="project-link">
-                 <a href="#"><i class="fab fa-github"></i></a>
-                 <a href="#"><i class="fas fa-globe"></i></a>
-              </div>
-           </div>
-        </div>
+    <section class="card">
+      <h1>dsync</h1>
+      <p class="desc">Escribí acá una descripción corta sobre vos: qué hacés, qué te interesa y qué tipo de proyectos te gustan.</p>
+    </section>
 
-        <!-- Project 4 -->
-        <div href="" class="card">
-           <div class="project-info">
-              <div class="project-bio">
-                 <h3>Project Four</h3>
-                 <p>React, Redux, SASS</p>
-              </div>
-
-              <div class="project-link">
-                 <a href="#"><i class="fab fa-github"></i></a>
-                 <a href="#"><i class="fas fa-globe"></i></a>
-              </div>
-           </div>
-        </div>
-
-        <!-- Project 5 -->
-        <div href="" class="card">
-           <div class="project-info">
-              <div class="project-bio">
-                 <h3>Project Five</h3>
-                 <p>React, Redux, SASS</p>
-              </div>
-
-              <div class="project-link">
-                 <a href="#"><i class="fab fa-github"></i></a>
-                 <a href="#"><i class="fas fa-globe"></i></a>
-              </div>
-           </div>
-         </div>
-
-        <!-- Project 6 -->
-        <div href="" class="card">
-           <div class="project-info">
-             <div class="project-bio">
-                 <h3>Project Six</h3>
-                 <p>React, Redux, SASS</p>
-              </div>
-
-              <div class="project-link">
-                 <a href="#"><i class="fab fa-github"></i></a>
-                 <a href="#"><i class="fas fa-globe"></i></a>
-              </div>
-           </div>
-         </div>
-     </article>
-
-     <a href="#" class="btn btn-secondary">See More <i class="fas fa-arrow-right"></i></a>
-   </section>
-
-   <footer id="footer">
-      <div class="container">
-         <a href="mailto:communitypro47@gmail.com">communitypro47@gmail.com</a>
-         <!-- Social links -->
-         <div class="social">
-            <a href="#"><img src="./assets/facebook-icon.svg" alt="Facebook"></a>
-            <a href="#"><img src="./assets/twitter-icon.svg" alt="Twitter"></a>
-            <a href="#"><img src="./assets/linkedin-icon.svg" alt="Linkedin"></a>
-            <a href="#"><img src="./assets/github-icon.svg" alt="GitHub"></a>
-            <a href="#"><img src="./assets/hashnode-icon.svg" alt="Hashnode"></a>
-         </div>
-         <p>Copyright &copy; dsync 2026, All rights reserved</p>
+    <section class="card" id="contacto">
+      <h2>Redes y contacto</h2>
+      <div class="links">
+        <a href="https://github.com/dsync420" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:tu@email.com">Email</a>
+        <a href="https://instagram.com/tu-usuario" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener">LinkedIn</a>
       </div>
-   </footer>
-    <script src="js/script.js"></script>
-  </body>
+    </section>
+
+    <h2 class="section-title">Proyectos</h2>
+    <section class="projects" id="proyectos">
+      <a class="card project" href="https://github.com/dsync420" target="_blank" rel="noopener">
+        <h3>Proyecto uno</h3>
+        <p>Descripción breve de lo que hace este proyecto.</p>
+        <div class="tags">HTML · CSS · JS</div>
+      </a>
+      <a class="card project" href="https://github.com/dsync420" target="_blank" rel="noopener">
+        <h3>Proyecto dos</h3>
+        <p>Contá el problema que resolviste.</p>
+        <div class="tags">Python · API</div>
+      </a>
+      <a class="card project" href="https://github.com/dsync420" target="_blank" rel="noopener">
+        <h3>Proyecto tres</h3>
+        <p>Otro trabajo que quieras mostrar.</p>
+        <div class="tags">React · Node</div>
+      </a>
+      <a class="card project" href="https://github.com/dsync420" target="_blank" rel="noopener">
+        <h3>Proyecto cuatro</h3>
+        <p>Podés agregar o quitar los que quieras.</p>
+        <div class="tags">Diseño · Figma</div>
+      </a>
+    </section>
+
+    <footer>© <span id="year"></span> dsync</footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Partículas blancas
+    (function () {
+      var canvas = document.getElementById("particles");
+      var ctx = canvas.getContext("2d");
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var particles = [];
+      var w, h, dpr;
+
+      function resize() {
+        dpr = window.devicePixelRatio || 1;
+        w = window.innerWidth;
+        h = window.innerHeight;
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        var count = Math.min(120, Math.floor((w * h) / 12000));
+        particles = [];
+        for (var i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            r: Math.random() * 1.4 + 0.3,
+            vx: (Math.random() - 0.5) * 0.25,
+            vy: (Math.random() - 0.5) * 0.25,
+            a: Math.random() * 0.6 + 0.3
+          });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        for (var i = 0; i < particles.length; i++) {
+          var p = particles[i];
+          if (!reduce) {
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < 0) p.x = w;
+            if (p.x > w) p.x = 0;
+            if (p.y < 0) p.y = h;
+            if (p.y > h) p.y = 0;
+          }
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(255,255,255," + p.a + ")";
+          ctx.fill();
+        }
+        if (!reduce) requestAnimationFrame(draw);
+      }
+
+      window.addEventListener("resize", function () { resize(); if (reduce) draw(); });
+      resize();
+      draw();
+    })();
+  </script>
+</body>
 </html>
